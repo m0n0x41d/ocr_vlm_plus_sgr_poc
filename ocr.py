@@ -45,6 +45,7 @@ First, classify the image into one of these categories:
 
 ## IMPORTANT GUIDELINES:
 - Only process clear payment-related documents
+- Respect duplicate line items, don't ignore them but reflect either in quantity or just as a duplicate line item
 - Reject blurry, partial, or ambiguous images
 - Do not attempt OCR on non-payment documents
 - Prioritize accuracy over completeness
@@ -55,6 +56,7 @@ agent = Agent(
     model,
     output_type=NativeOutput(OcrResponse),
     system_prompt=SYSTEM_PROMPT,
+    retries=5,
 )
 
 
