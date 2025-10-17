@@ -1,6 +1,6 @@
 # good_cheap_ocr_with_vlm_and_sgr
 
-This repository represents a minimal POC demonstrating how, based on sufficiently small VLM models and using SoTA i[Schema Guided Reasoning](https://abdullin.com/schema-guided-reasoning/) framework as of fall 2025, quite accurate results in payment document recognition can be achieved.
+This repository represents a minimal POC demonstrating how, based on sufficiently small VLM models and using SoTA AI Engineering framework – [Schema Guided Reasoning](https://abdullin.com/schema-guided-reasoning/) as of fall 2025, quite accurate results in payment document recognition can be achieved.
 
 This project uses the [Qwen/Qwen3-VL-8B-Instruct](https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct) model.
 
@@ -9,6 +9,8 @@ The code is written using the [pydantic-ai](https://ai.pydantic.dev/) library fo
 The project represents a minimal but working example of how, using SGR schemas and a single system prompt, you can guide the model's attention along a chain of quite deterministic operation.
 
 Pay attention to [sgt_models.py](receipts_ocr_poc/sgt_models.py) which contains Pydantic BaseModel definitions that define the SGR chain.
+
+`ocr.log` file contains example of run the code with default files located in `files_to_ocr` directory.
 
 ## This is poc indeed
 
