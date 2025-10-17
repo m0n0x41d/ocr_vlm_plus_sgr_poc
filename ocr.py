@@ -1,16 +1,13 @@
-from pydantic.types import Base64Bytes
 from pydantic_ai import Agent, NativeOutput, BinaryContent
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.providers.openai import OpenAIProvider
-from pydantic import BaseModel, Field
-from enum import Enum
-from typing import List, Optional
 import json
 import glob
 import sys
 import os
 from loguru import logger
 from dotenv import load_dotenv
+from sgr_models import OcrResponse
 
 load_dotenv()
 
@@ -36,55 +33,29 @@ model = OpenAIChatModel(
 )
 
 
-class PaymentMethod(str, Enum):
-    CASH = "cash"
-    CARD = "card"
+SYSTEM_PROMPT = """
+You are a specialized document recognition system focused on payment-related documents.
+Your task is to analyze images and determine if they contain valid payment documents.
 
+## DOCUMENT CLASSIFICATION:
+First, classify the image into one of these categories:
+1. INVOICE - A formal bill requesting payment for goods/services, typically includes: company details, invoice number, itemized charges, totals, payment terms
+2. RECEIPT - Proof of completed payment, typically includes: vendor name, items purchased, prices, payment method, date/time, transaction number
+3. NOT_PAYMENT_DOCUMENT - Any other type of document or image
 
-class Currency(str, Enum):
-    USD = "USD"
-    EUR = "EUR"
-    GBP = "GBP"
-    RUB = "RUB"
-    NUL = "NUL"
+## IMPORTANT GUIDELINES:
+- Only process clear payment-related documents
+- Reject blurry, partial, or ambiguous images
+- Do not attempt OCR on non-payment documents
+- Prioritize accuracy over completeness
+- If uncertain about classification, default to NOT_PAYMENT_DOCUMENT
+"""
 
-
-class LineItem(BaseModel):
-    description: str = Field(..., description="Description of the item")
-    quantity: int = Field(..., description="Quantity of the item")
-    unit_price: float = Field(..., description="Price per unit")
-    total_price: float = Field(..., description="Total price for this line item")
-
-
-class ReceiptData(BaseModel):
-    merchant_name: str = Field(..., description="Name of the store/merchant")
-    currency: Currency = Field(
-        ..., description="Currency of the transaction. Set NUL if can't be determined"
-    )
-    date: str = Field(..., description="Date of purchase")
-    time: Optional[str] = Field(None, description="Time of purchase")
-    line_items: List[LineItem] = Field(..., description="List of purchased items")
-    subtotal: float = Field(..., description="Subtotal before tax")
-    tax: Optional[float] = Field(None, description="Tax amount")
-    total: float = Field(..., description="Total amount paid")
-    payment_method: PaymentMethod = Field(..., description="Payment method used")
-    receipt_number: Optional[str] = Field(
-        None, description="Receipt or transaction number"
-    )
-
-
-class OcrResponse(BaseModel):
-    is_document_receipt: bool = Field(
-        ...,
-        description="Whether the OCR result is a document receipt. Do not try to parse the result if this is False.",
-    )
-    receipt_data: ReceiptData | None = Field(
-        ...,
-        description="Receipt data extracted from the OCR",
-    )
-
-
-agent = Agent(model, output_type=NativeOutput(OcrResponse))
+agent = Agent(
+    model,
+    output_type=NativeOutput(OcrResponse),
+    system_prompt=SYSTEM_PROMPT,
+)
 
 
 if __name__ == "__main__":

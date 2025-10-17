@@ -1,0 +1,252 @@
+2025-10-17 14:36:57 | SUCCESS  | __main__:<module>:68 - Got 5 JPG files to process
+2025-10-17 14:36:57 | INFO     | __main__:<module>:69 - ============================================================
+2025-10-17 14:36:57 | INFO     | __main__:<module>:72 - [1/5] Processing: files_to_ocr/duck.jpg
+2025-10-17 14:36:57 | INFO     | __main__:<module>:73 - ----------------------------------------
+2025-10-17 14:36:57 | INFO     | __main__:<module>:78 - Sending image to LLM...
+2025-10-17 14:37:01 | SUCCESS  | __main__:<module>:83 - OCR processing completed successfully!
+2025-10-17 14:37:01 | INFO     | __main__:<module>:84 - Extracted receipt data:
+2025-10-17 14:37:01 | INFO     | __main__:<module>:87 -
+{
+  "document_type": "not_payment_document",
+  "receipt_data": null,
+  "invoice_data": null,
+  "ocr_quality_confidence": "nul",
+  "reasoning_commentary": "The image shows a Mandarin duck, which is a bird, not a payment document. No invoice or receipt information is present."
+}
+2025-10-17 14:37:01 | INFO     | __main__:<module>:72 - [2/5] Processing: files_to_ocr/receipt_1.jpg
+2025-10-17 14:37:01 | INFO     | __main__:<module>:73 - ----------------------------------------
+2025-10-17 14:37:01 | INFO     | __main__:<module>:78 - Sending image to LLM...
+2025-10-17 14:37:10 | SUCCESS  | __main__:<module>:83 - OCR processing completed successfully!
+2025-10-17 14:37:10 | INFO     | __main__:<module>:84 - Extracted receipt data:
+2025-10-17 14:37:10 | INFO     | __main__:<module>:87 -
+{
+  "document_type": "receipt",
+  "receipt_data": {
+    "merchant_name": "Пятерочка",
+    "currency": "RUB",
+    "date": "29.06.17",
+    "time": "13:18",
+    "line_items": [
+      {
+        "description": "Пиво ZAT.GUS с.П.Т 1.42л",
+        "quantity": 1,
+        "unit_price": 94.0,
+        "total_price": 94.0
+      },
+      {
+        "description": "Пиво ZAT.GUS с.П.Т 1.42л",
+        "quantity": 1,
+        "unit_price": 94.0,
+        "total_price": 94.0
+      }
+    ],
+    "subtotal": 188.0,
+    "tax": 28.68,
+    "total": 188.0,
+    "payment_method": "card",
+    "receipt_number": "Чек:00183"
+  },
+  "invoice_data": null,
+  "ocr_quality_confidence": "medium",
+  "reasoning_commentary": null
+}
+2025-10-17 14:37:10 | INFO     | __main__:<module>:72 - [3/5] Processing: files_to_ocr/receipt_2.jpg
+2025-10-17 14:37:10 | INFO     | __main__:<module>:73 - ----------------------------------------
+2025-10-17 14:37:10 | INFO     | __main__:<module>:78 - Sending image to LLM...
+2025-10-17 14:37:21 | SUCCESS  | __main__:<module>:83 - OCR processing completed successfully!
+2025-10-17 14:37:21 | INFO     | __main__:<module>:84 - Extracted receipt data:
+2025-10-17 14:37:21 | INFO     | __main__:<module>:87 -
+{
+  "document_type": "receipt",
+  "receipt_data": {
+    "merchant_name": "NOMA",
+    "currency": "EUR",
+    "date": "07-09-2016",
+    "time": "15:20",
+    "line_items": [
+      {
+        "description": "MENU",
+        "quantity": 2,
+        "unit_price": 1900.0,
+        "total_price": 3800.0
+      },
+      {
+        "description": "WATER",
+        "quantity": 2,
+        "unit_price": 50.0,
+        "total_price": 100.0
+      },
+      {
+        "description": "GLASS JUICE",
+        "quantity": 2,
+        "unit_price": 75.0,
+        "total_price": 150.0
+      },
+      {
+        "description": "COFFEE/TEA",
+        "quantity": 2,
+        "unit_price": 75.0,
+        "total_price": 150.0
+      }
+    ],
+    "subtotal": 4200.0,
+    "tax": 840.0,
+    "total": 4200.0,
+    "payment_method": "cash",
+    "receipt_number": "20"
+  },
+  "invoice_data": null,
+  "ocr_quality_confidence": "good",
+  "reasoning_commentary": null
+}
+2025-10-17 14:37:21 | INFO     | __main__:<module>:72 - [4/5] Processing: files_to_ocr/invoice_1.jpg
+2025-10-17 14:37:21 | INFO     | __main__:<module>:73 - ----------------------------------------
+2025-10-17 14:37:21 | INFO     | __main__:<module>:78 - Sending image to LLM...
+2025-10-17 14:37:52 | SUCCESS  | __main__:<module>:83 - OCR processing completed successfully!
+2025-10-17 14:37:52 | INFO     | __main__:<module>:84 - Extracted receipt data:
+2025-10-17 14:37:52 | INFO     | __main__:<module>:87 -
+{
+  "document_type": "invoice",
+  "receipt_data": {
+    "merchant_name": "TechFlow Solutions Inc.",
+    "currency": "USD",
+    "date": "October 17, 2025",
+    "time": null,
+    "line_items": [
+      {
+        "description": "Enterprise Cloud Hosting Premium Tier",
+        "quantity": 1,
+        "unit_price": 2450.0,
+        "total_price": 2450.0
+      },
+      {
+        "description": "API Gateway Service Unlimited Requests",
+        "quantity": 1,
+        "unit_price": 850.0,
+        "total_price": 850.0
+      },
+      {
+        "description": "Data Analytics Platform Advanced Package",
+        "quantity": 3,
+        "unit_price": 475.0,
+        "total_price": 1425.0
+      },
+      {
+        "description": "24/7 Technical Support Platinum Level",
+        "quantity": 1,
+        "unit_price": 1200.0,
+        "total_price": 1200.0
+      },
+      {
+        "description": "Custom Integration Services Project: CRM-ERP Bridge",
+        "quantity": 40,
+        "unit_price": 175.0,
+        "total_price": 7000.0
+      }
+    ],
+    "subtotal": 12925.0,
+    "tax": 1034.0,
+    "total": 13959.0,
+    "payment_method": "cash",
+    "receipt_number": "INV-2025-1047"
+  },
+  "invoice_data": {
+    "invoice_number": "INV-2025-1047",
+    "invoice_date": "October 17, 2025",
+    "due_date": "November 16, 2025",
+    "currency": "USD",
+    "seller_name": "TechFlow Solutions Inc.",
+    "seller_address": "2500 Innovation Drive, Austin, TX 78701, USA",
+    "seller_phone": "(512) 555-7890",
+    "seller_email": "billing@techflowsolutions.com",
+    "seller_tax_id": null,
+    "buyer_name": "Meridian Enterprises Ltd.",
+    "buyer_address": "45 Commerce Square, Suite 800, New York, NY 10013",
+    "buyer_phone": null,
+    "buyer_email": "Accounts Payable",
+    "buyer_tax_id": "ACC00478",
+    "line_items": [
+      {
+        "description": "Enterprise Cloud Hosting Premium Tier",
+        "quantity": 1,
+        "unit_price": 2450.0,
+        "total_price": 2450.0
+      },
+      {
+        "description": "API Gateway Service Unlimited Requests",
+        "quantity": 1,
+        "unit_price": 850.0,
+        "total_price": 850.0
+      },
+      {
+        "description": "Data Analytics Platform Advanced Package",
+        "quantity": 3,
+        "unit_price": 475.0,
+        "total_price": 1425.0
+      },
+      {
+        "description": "24/7 Technical Support Platinum Level",
+        "quantity": 1,
+        "unit_price": 1200.0,
+        "total_price": 1200.0
+      },
+      {
+        "description": "Custom Integration Services Project: CRM-ERP Bridge",
+        "quantity": 40,
+        "unit_price": 175.0,
+        "total_price": 7000.0
+      }
+    ],
+    "subtotal": 12925.0,
+    "tax_amount": 1034.0,
+    "discount_amount": null,
+    "total_amount": 13959.0,
+    "payment_method": "cash",
+    "payment_terms": "Net 30",
+    "bank_details": null,
+    "notes": null,
+    "purchase_order_number": "PO-8834521"
+  },
+  "ocr_quality_confidence": "medium",
+  "reasoning_commentary": null
+}
+2025-10-17 14:37:52 | INFO     | __main__:<module>:72 - [5/5] Processing: files_to_ocr/crumpled_gas_station_receipt.jpg
+2025-10-17 14:37:52 | INFO     | __main__:<module>:73 - ----------------------------------------
+2025-10-17 14:37:52 | INFO     | __main__:<module>:78 - Sending image to LLM...
+2025-10-17 14:38:00 | SUCCESS  | __main__:<module>:83 - OCR processing completed successfully!
+2025-10-17 14:38:00 | INFO     | __main__:<module>:84 - Extracted receipt data:
+2025-10-17 14:38:00 | INFO     | __main__:<module>:87 -
+{
+  "document_type": "receipt",
+  "receipt_data": {
+    "merchant_name": "SHELL STATION",
+    "currency": "USD",
+    "date": "11/14/96",
+    "time": "02/98",
+    "line_items": [
+      {
+        "description": "REGULAR/SLF",
+        "quantity": 1,
+        "unit_price": 10.38,
+        "total_price": 10.38
+      },
+      {
+        "description": "NON-AUTOMOTIVE",
+        "quantity": 5,
+        "unit_price": 1.28,
+        "total_price": 1.28
+      }
+    ],
+    "subtotal": 11.66,
+    "tax": 0.08,
+    "total": 11.66,
+    "payment_method": "card",
+    "receipt_number": "9105000001"
+  },
+  "invoice_data": null,
+  "ocr_quality_confidence": "medium",
+  "reasoning_commentary": null
+}
+2025-10-17 14:38:00 | INFO     | __main__:<module>:93 -
+============================================================
+2025-10-17 14:38:00 | SUCCESS  | __main__:<module>:94 - All receipts processed
